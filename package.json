@@ -1,6 +1,7 @@
 {
   "name": "chakra-ui",
   "private": true,
+  "homepage": "http://remedyproduct.github.io/design-system",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chakra-ui/chakra-ui.git"
@@ -43,7 +44,10 @@
     "version:dev": "changeset version --snapshot dev",
     "release:dev": "changeset publish --tag dev",
     "sandbox": "tsx scripts/sandbox.ts",
-    "notify:release": "npm-run-all changelog:write discord changelog:commit"
+    "notify:release": "npm-run-all changelog:write discord changelog:commit",
+    "predeploy": "pnpm run build-storybook",
+    "deploy-storybook": "gh-pages -d storybook-static",
+    "build-storybook": "build-storybook"
   },
   "version": "2.0.0",
   "dependencies": {
@@ -99,6 +103,7 @@
     "eslint-plugin-testing-library": "5.5.1",
     "find-packages": "9.0.6",
     "find-up": "^6.3.0",
+    "gh-pages": "^4.0.0",
     "husky": "^7.0.4",
     "jest": "^28.1.1",
     "jest-environment-jsdom": "^28.1.1",
